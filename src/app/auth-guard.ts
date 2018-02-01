@@ -1,9 +1,17 @@
-import {CanActivate} from "@angular/router";
+import {CanActivate, Router} from "@angular/router";
 import {Injectable} from "@angular/core";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+
+  constructor(private router: Router) {
+  }
+
   canActivate() {
-    return localStorage.getItem('authToken') ? true: false;
+    let canActivate = localStorage.getItem('authToken') ? true: false;
+    if(!canActivate) {
+      this.router.navigateByUrl('/competitions');
+    }
+    return canActivate;
   }
 }

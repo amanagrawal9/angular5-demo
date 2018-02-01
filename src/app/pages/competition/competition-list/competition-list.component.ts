@@ -8,7 +8,7 @@ import {CompetitionService} from "../../../services/competition.service";
 })
 export class CompetitionListComponent implements OnInit {
 
-  competitions: any[];
+  competitions: any[] = [];
 
   constructor(private competitionService: CompetitionService) {
   }
@@ -16,7 +16,7 @@ export class CompetitionListComponent implements OnInit {
   ngOnInit() {
     this.competitionService.getCompetitions()
       .subscribe(response => {
-        console.log(response);
+        this.competitions = response.Data;
       });
   }
 

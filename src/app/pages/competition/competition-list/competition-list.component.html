@@ -9,6 +9,13 @@
       <th>Owner FirstName</th>
       <th>Actions</th>
     </tr>
-    <!--<tr></tr>-->
+    <tr *ngFor="let competition of competitions">
+      <td>{{competition.Competition.StartDate | date}}</td>
+      <td>{{competition.Competition.Name}}</td>
+      <td>{{competition.Competition.Sport}}</td>
+      <td>{{competition.Competition.Location}}</td>
+      <td>{{competition.Competition.Owner.FirstName}}</td>
+      <td></td>
+    </tr>
   </table>
 </div>

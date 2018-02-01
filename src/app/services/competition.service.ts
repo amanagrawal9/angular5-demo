@@ -16,7 +16,7 @@ export class CompetitionService {
   }
 
   getCompetitions(): Observable<any> {
-    return this.http.get<any>(this.baseUrl + 'user/competitions?last=15&status=open');
+    return this.http.get<any>(this.baseUrl + 'user/competition?last=15&status=open');
   }
 
 }
