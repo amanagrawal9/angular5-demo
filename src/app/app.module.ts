@@ -3,9 +3,14 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {CompetitionListComponent} from './pages/competition/competition-list/competition-list.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
-import { LoginComponent } from './pages/login/login.component';
+import {LoginComponent} from './pages/login/login.component';
+import {CompetitionService} from "./services/competition.service";
+import {UserService} from "./services/user.service";
+import {FormsModule} from "@angular/forms";
+import {AuthInterceptor} from "./http-interceptors/auth-interceptor";
+import {AuthGuard} from "./auth-guard";
 
 @NgModule({
   declarations: [
@@ -14,9 +19,11 @@ import { LoginComponent } from './pages/login/login.component';
     LoginComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, AppRoutingModule
+    BrowserModule, HttpClientModule, AppRoutingModule, FormsModule
   ],
-  providers: [],
+  providers: [UserService, CompetitionService, AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,39 @@
-<p>
-  login works!
-</p>
+<div class="container login-page-margin">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+        <p class="lead">Login</p> {{user | json}}
+
+        <div class="row">
+          <div class="col-md-3">&nbsp;</div>
+          <div class="col-md-6 col-md-offset-3">
+            <input type="email" required [(ngModel)]="user.Email" class="form-control"
+                   placeholder="Enter email"/>
+          </div>
+        </div>
+
+
+        <br/><br/><br/><br/>
+
+        <div class="row">
+          <div class="col-md-3">&nbsp;</div>
+          <div class="col-md-6">
+            <input type="password" required [(ngModel)]="user.Password" class="form-control"
+                   placeholder="Enter password"/>
+          </div>
+        </div>
+
+        <br/><br/><br/><br/>
+
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-primary" (click)="login()">
+              <i class="glyphicon glyphicon-log-in"></i> Login
+            </button>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+

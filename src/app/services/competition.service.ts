@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class CompetitionService {
@@ -15,7 +16,7 @@ export class CompetitionService {
   }
 
   getCompetitions(): Observable<any> {
-    return this.http.get<any>(this.baseUrl);
+    return this.http.get<any>(this.baseUrl + 'user/competitions?last=15&status=open');
   }
 
 }
