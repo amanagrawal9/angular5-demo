@@ -11,12 +11,14 @@ import {UserService} from "./services/user.service";
 import {FormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./http-interceptors/auth-interceptor";
 import {AuthGuard} from "./auth-guard";
+import {CompetitionCreateComponent} from './pages/competition/competition-create/competition-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CompetitionListComponent,
-    LoginComponent
+    LoginComponent,
+    CompetitionCreateComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, FormsModule

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CompetitionService} from "../../../services/competition.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-competition-list',
@@ -10,14 +11,15 @@ export class CompetitionListComponent implements OnInit {
 
   competitions: any[] = [];
 
-  constructor(private competitionService: CompetitionService) {
+  constructor(private router: Router, private competitionService: CompetitionService) {
   }
 
   ngOnInit() {
-    this.competitionService.getCompetitions()
-      .subscribe(response => {
-        this.competitions = response.Data;
-      });
+    this.competitions = this.competitionService.getCompetitions();
+  }
+
+  createCompetition() {
+    this.router.navigateByUrl('/competition-create');
   }
 
 }

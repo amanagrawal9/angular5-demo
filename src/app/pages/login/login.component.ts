@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  user: any = {InstanceId: 'aaaaa', Email: 'demo@cloudtimer.nl', Password: 'test1234'};
+  user: any = {};
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -17,11 +17,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.userService.login(this.user)
-      .subscribe(response => {
-        localStorage.setItem('authToken', response.Data.Token);
-        this.router.navigateByUrl('/competitions');
-      });
+    this.userService.login(this.user);
+    this.router.navigateByUrl('/competitions');
   }
 
 }

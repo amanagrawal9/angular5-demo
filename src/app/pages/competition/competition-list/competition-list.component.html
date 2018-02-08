@@ -1,21 +1,23 @@
 <div class="container">
-  <h3 class="text-center">Competitions</h3>
+  <h3 class="text-center">
+    Competitions<br /><br />
+    <span><button type="button" class="btn btn-success float-right"
+           (click)="createCompetition()">Add Competition</button> <br /></span></h3>
   <table class="table table-bordered">
     <tr>
-      <th>Start Date</th>
+      <th></th>
       <th>Name</th>
-      <th>Sport</th>
-      <th>LocationData(show main location)</th>
-      <th>Owner FirstName</th>
+      <th>Sport Type</th>
+      <th>Coordinator Name</th>
       <th>Actions</th>
     </tr>
-    <tr *ngFor="let competition of competitions">
-      <td>{{competition.Competition.StartDate | date}}</td>
-      <td>{{competition.Competition.Name}}</td>
-      <td>{{competition.Competition.Sport}}</td>
-      <td>{{competition.Competition.Location}}</td>
-      <td>{{competition.Competition.Owner.FirstName}}</td>
+    <tr *ngFor="let competition of competitions; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{competition.name}}</td>
+      <td>{{competition.sport_type}}</td>
+      <td>{{competition.coordinator_name}}</td>
       <td></td>
     </tr>
+    <tr *ngIf="competitions.length == 0"><td colspan="6" class="text-center font-italic font-weight-light">No Result Found</td></tr>
   </table>
 </div>

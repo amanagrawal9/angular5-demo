@@ -8,6 +8,12 @@ export class CompetitionService {
 
   private baseUrl = 'https://apidev.cloudtimer.nl/';
 
+  competitions: any[] = [{
+    name: 'MPL',
+    sport_type: 'Cricket',
+    coordinator_name: 'ABC'
+  }];
+
   constructor(
     private http: HttpClient) { }
 
@@ -15,8 +21,8 @@ export class CompetitionService {
     return this.http.post<any>(this.baseUrl + 'auth/login', data);
   }
 
-  getCompetitions(): Observable<any> {
-    return this.http.get<any>(this.baseUrl + 'user/competition?last=15&status=open');
+  getCompetitions(): any[] {
+    return this.competitions;
   }
 
 }
